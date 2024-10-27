@@ -1,5 +1,6 @@
 
-import { iFrame } from "../interfaces";
+import { IFrame } from "../interfaces";
+import { Player } from "./PlayerClass";
 
 const players = new Set<Player>()
 const roomsController = new RoomsController(players);
@@ -10,7 +11,7 @@ export const wsConnectionHandler = (ws:WebSocket)=>{
     let room: Room;
 
     ws.onmessage = (msg:{data:string})=>{
-        const frame = JSON.parse(msg.data) as iFrame;
+        const frame = JSON.parse(msg.data) as IFrame;
         const {type:frameType, data} = frame;
         const frameData = dataParser(data);
         switch(frameType){

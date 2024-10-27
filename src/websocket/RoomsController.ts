@@ -1,5 +1,5 @@
 import { Player } from "./PlayerClass";
-import { Room } from "./Room";
+import { Room } from "./RoomClass";
 export class RoomsController extends Array<Room> {
   #players: Set<Player>;
   constructor(connections: Set<Player>) {
